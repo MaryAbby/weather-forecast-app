@@ -56,11 +56,17 @@ h2 {
   font-weight: 100;
   margin-right: 10px;
 }
-hr {
+hr.below-header {
   width: 90%;
   margin-top: -15px;
   opacity: 0.5;
 }
+hr.above-footer {
+  width: 90%;
+  margin-top: 10px;
+  opacity: 0.5;
+}
+
 .weather {
   display: flex;
   justify-content: center;

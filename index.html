@@ -32,27 +32,34 @@
           <h1>
             <span class="city-name" id="city-name"></span> <br /><strong
               class="time"
+              id="time"
               >21:56</strong
             >
           </h1>
           <h2>
-            12 FEB <br />
-            MONDAY
+            <span id="day">TUESDAY</span>
+            <br />
+            <span id="date">13 FEB</span>
           </h2>
         </div>
-        <hr />
+        <hr class="below-header" />
         <div class="weather">
           <div class="temperature" id="temperature"></div>
           <div class="weather-icon">
             ⛅
-            <br /><strong class="weather-description">CLOUDY</strong>
+            <br /><strong class="weather-description" id="weather-description"
+              >CLOUDY</strong
+            >
           </div>
         </div>
-        <hr />
+        <hr class="above-footer" />
         <ul class="other-parameters">
-          <li>humidity:78%</li>
-          <li>windspeed:3km/hr</li>
-          <li>units:C° F</li>
+          <li>humidity: <span id="humidity"></span>%</li>
+          <li>windspeed: <span id="windspeed"></span>km/hr</li>
+          <li id="units">
+            units:<strong id="celicius">C° </strong
+            ><span id="farenheit">F°</span>
+          </li>
         </ul>
       </main>
       <footer>
