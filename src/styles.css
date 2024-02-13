@@ -92,6 +92,9 @@ strong.weather-description {
   padding: 20px;
   margin-top: 0px;
 }
+li strong {
+  color: #f65282;
+}
 footer {
   text-align: center;
   font-size: 13px;
