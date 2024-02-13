@@ -9,6 +9,7 @@ function cityTemperature(response) {
   let dateElement = document.querySelector("#date");
   let dayElement = document.querySelector("#day");
   let date = new Date(response.data.time * 1000);
+  let iconElement = document.querySelector("#icon");
 
   city.innerHTML = response.data.city.toUpperCase();
   temperatureElement.innerHTML = `${Math.round(temperature)}°`;
@@ -18,6 +19,10 @@ function cityTemperature(response) {
   timeElement.innerHTML = formatTime(date);
   dateElement.innerHTML = formatMonth(date).toUpperCase();
   dayElement.innerHTML = formatDate(date).toUpperCase();
+  iconElement.innerHTML = `<img
+      src= "${response.data.condition.icon_url}"
+      class="weather-icon"
+    />`;
 }
 function formatTime(date) {
   let minutes = date.getMinutes();
