@@ -84,7 +84,35 @@ function searchForm(event) {
   let searchInput = document.querySelector("#search-form-input");
   searchCity(searchInput.value);
 }
+
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="row">
+            <div class="col-2 column">
+              <div class="weather-forecast-date">${day}</div>
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+                alt=""
+                width="50"
+              />
+              <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temperature-maximum">18°</span>
+                <span class="weather-forecast-temperature-minimum">12°</span>
+              </div>
+              </div>
+            </div>`;
+  });
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchForm);
 
 searchCity("Kampala");
+displayForecast();

@@ -95,7 +95,7 @@ strong.weather-description {
 li strong {
   color: #f65282;
 }
-.weather-forecast-section {
+.weather-forecast {
   backdrop-filter: blur(10px);
   border-radius: 15px;
   display: block;
@@ -103,12 +103,12 @@ li strong {
   box-shadow: rgba(248, 247, 247) 0 0 8px;
   margin: 40px auto;
   display: flex;
-}
-.weather-forecast {
+  justify-content: space-around;
   text-align: center;
 }
 .row {
   display: flex;
+  flex-direction: row;
 }
 .column {
   display: flex;
