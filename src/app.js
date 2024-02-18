@@ -23,6 +23,7 @@ function cityTemperature(response) {
       src= "${response.data.condition.icon_url}"
       class="weather-icon"
     />`;
+  getForecast(response.data.city);
 }
 function formatTime(date) {
   let minutes = date.getMinutes();
@@ -84,8 +85,14 @@ function searchForm(event) {
   let searchInput = document.querySelector("#search-form-input");
   searchCity(searchInput.value);
 }
+function getForecast(city) {
+  let apiKey = "1a747f2d7ac32a100bt13fab8776o6ca";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
   let forecastHtml = "";
 
@@ -115,4 +122,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchForm);
 
 searchCity("Kampala");
-displayForecast();
