@@ -85,6 +85,14 @@ function searchForm(event) {
   let searchInput = document.querySelector("#search-form-input");
   searchCity(searchInput.value);
 }
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
 function getForecast(city) {
   let apiKey = "1a747f2d7ac32a100bt13fab8776o6ca";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -92,27 +100,31 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
-  let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `<div class="row">
+  response.data.daily.forEach(function (day, index) {
+    if (index > 0 && index < 6) {
+      forecastHtml =
+        forecastHtml +
+        `<div class="row">
             <div class="col-2 column">
-              <div class="weather-forecast-date">${day}</div>
+              <div class="weather-forecast-date">${formatDay(day.time)}</div>
               <img
-                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+                src="${day.condition.icon_url}"
                 alt=""
                 width="50"
               />
               <div class="weather-forecast-temperature">
-                <span class="weather-forecast-temperature-maximum">18°</span>
-                <span class="weather-forecast-temperature-minimum">12°</span>
+                <span class="weather-forecast-temperature-maximum">${Math.round(
+                  day.temperature.maximum
+                )}°</span>
+                <span class="weather-forecast-temperature-minimum">${Math.round(
+                  day.temperature.minimum
+                )}°</span>
               </div>
               </div>
             </div>`;
+    }
   });
 
   let forecastElement = document.querySelector("#forecast");

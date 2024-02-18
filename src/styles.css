@@ -115,11 +115,13 @@ li strong {
   flex-direction: column;
 }
 .weather-forecast-temperature-maximum {
-  font-weight: 500;
+  font-weight: 700;
+  color: #f65282;
 }
 .weather-forecast-temperature-minimum {
-  font-weight: 500;
+  font-weight: 700;
   opacity: 0.5;
+  color: #f65282;
 }
 footer {
   text-align: center;
