@@ -43,10 +43,11 @@ body {
 .heading {
   display: flex;
   justify-content: space-between;
+  margin-top: -10px;
 }
 h1 {
   font-weight: 300;
-  margin-left: 10px;
+  margin-left: 40px;
 }
 strong.time {
   font-weight: 100;
@@ -54,7 +55,7 @@ strong.time {
 }
 h2 {
   font-weight: 100;
-  margin-right: 10px;
+  margin-right: 40px;
 }
 hr.below-header {
   width: 90%;
